@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply font-sans text-darkText bg-cream antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Lenis owns smooth scrolling (see lib/smooth.ts); keep native smooth scroll off. */
+section[id] {
+  scroll-margin-top: 3.5rem;
+}
+
+a,
+button {
+  touch-action: manipulation;
+}
+
+/* Visible keyboard focus on both light and dark backgrounds */
+:focus-visible {
+  outline: 2px solid #294c35;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px rgba(217, 183, 126, 0.85);
+  border-radius: 0.5rem;
+}
+
+/* Hide scrollbars on horizontal snap scrollers */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Spotlight cards (cursor-follow glow, mouse only) */
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    420px circle at var(--x, 50%) var(--y, 50%),
+    rgba(217, 183, 126, 0.3),
+    transparent 60%
+  );
+  transition: opacity 0.3s;
+}
+@media (hover: hover) {
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Keyframes */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes cue {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2.6s ease-out infinite;
+}
+.menu-in {
+  animation: fade-in 0.25s ease-out both;
+}
+.menu-item {
+  animation: rise-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.scroll-cue {
+  animation: cue 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
