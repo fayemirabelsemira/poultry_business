@@ -1,14 +1,24 @@
 import { useEffect } from "react";
 import { Layout } from "./components/Layout";
 import { Hero } from "./components/Hero";
+import { Marquee } from "./components/Marquee";
 import { Products } from "./components/Products";
 import { AboutUs } from "./components/AboutUs";
 import { HowToOrder } from "./components/HowToOrder";
 import { OrderBuilder } from "./components/OrderBuilder";
 import { ServiceArea } from "./components/ServiceArea";
 import { Contact } from "./components/Contact";
+import { BUSINESS } from "./data/business";
 import { ScrollTrigger } from "./lib/motion";
 import { initSmoothScroll, scrollToHash } from "./lib/smooth";
+
+const MARQUEE_ITEMS = [
+  "Small eggs",
+  "Medium eggs",
+  "Large eggs",
+  "Order by SMS or WhatsApp",
+  BUSINESS.deliveryCoverage,
+];
 
 export default function App() {
   useEffect(() => {
@@ -42,6 +52,7 @@ export default function App() {
   return (
     <Layout>
       <Hero />
+      <Marquee items={MARQUEE_ITEMS} />
       <Products />
       <AboutUs />
       <HowToOrder />

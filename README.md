@@ -1,4 +1,4 @@
-# Rosario Paulty Farm — Website
+# Rosario Poultry Farm — Website
 
 React + TypeScript + Vite + Tailwind CSS (v3) + GSAP + Lenis + lucide-react. Designed mobile-first.
 
@@ -21,7 +21,7 @@ Build for production with `npm run build` (output in `dist/`), preview it with `
 - Scroll-reveal content, image wipe reveals, animated price counter, cursor-follow spotlight cards,
   magnetic hero button and a scrolling marquee (`src/components/`).
 - Mobile: full-screen menu, snap-scroll product cards, large touch targets, and a bottom action bar
-  (Order / SMS) that appears after the hero.
+  (Order / WhatsApp / SMS) that appears after the hero.
 - "Add a tray" on a product card adds it to the Order Builder and scrolls there.
 - Respects `prefers-reduced-motion` (no smooth scroll or animations), keyboard focus rings, skip link.
 
@@ -39,4 +39,4 @@ If a photo is missing, the site shows initials or an egg illustration instead.
 
 - Business name, landmark, delivery coverage: `src/data/business.ts`
 - Egg sizes, prices and short descriptions: `src/data/products.ts`
-- Phone numbers, Facebook profiles: `src/data/contacts.ts`
+- Phone numbers, WhatsApp, Facebook profiles: `src/data/contacts.ts`

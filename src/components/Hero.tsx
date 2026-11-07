@@ -55,51 +55,51 @@ export const Hero = () => {
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-forestGreen/55 to-forestGreen/95" />
 
-      <div className="container mx-auto px-4 pb-8 pt-20 sm:px-5 md:pb-24 md:pt-28">
-        <p className="hero-fade mb-3 inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-black/20 px-3 py-1 text-[0.62rem] md:mb-5 md:gap-2 md:px-3.5 md:py-1.5 md:text-[0.7rem] font-medium uppercase tracking-[0.18em] text-cream backdrop-blur">
+      <div className="container mx-auto px-5 pb-14 pt-28 md:pb-24">
+        <p className="hero-fade mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/20 px-3.5 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-cream backdrop-blur">
           <MapPin className="h-3.5 w-3.5 text-eggshellGold" aria-hidden="true" />
           Egg supplier · Rosario, Batangas
         </p>
 
-        <h1 className="max-w-3xl font-display text-[2rem] font-semibold leading-[1.08] text-cream sm:text-6xl lg:text-7xl">
+        <h1 className="max-w-3xl font-display text-[2.6rem] font-semibold leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
           <SplitText text="Fresh Eggs." />{" "}
           <SplitText text="Straight to Your Table." className="italic text-eggshellGold" />
         </h1>
 
-        <p className="hero-fade mt-3 max-w-xl text-sm text-cream/85 md:mt-5 md:text-lg">
+        <p className="hero-fade mt-5 max-w-xl text-base text-cream/85 md:text-lg">
           Contact us to inquire about Small, Medium, and Large eggs. Order by SMS or WhatsApp in under a
           minute.
         </p>
 
-        <div className="hero-fade mt-5 flex flex-col gap-2 sm:flex-row md:mt-8 md:gap-3">
+        <div className="hero-fade mt-8 flex flex-col gap-3 sm:flex-row">
           <Magnetic className="block w-full sm:w-auto">
             <a
               href="#order"
-              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-eggshellGold px-6 text-sm font-semibold md:h-14 md:px-8 md:text-base text-darkText transition-colors hover:bg-white sm:w-auto"
+              className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-full bg-eggshellGold px-8 font-semibold text-darkText transition-colors hover:bg-white sm:w-auto"
             >
               Order Eggs Now <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </Magnetic>
           <a
             href="#products"
-            className="inline-flex h-11 items-center justify-center rounded-full border border-white/40 px-6 text-sm font-medium md:h-14 md:px-8 md:text-base text-cream backdrop-blur transition-colors hover:bg-white/10 sm:w-auto"
+            className="inline-flex h-14 items-center justify-center rounded-full border border-white/40 px-8 font-medium text-cream backdrop-blur transition-colors hover:bg-white/10 sm:w-auto"
           >
             Explore Our Products
           </a>
         </div>
 
-        <ul className="hero-fade mt-5 grid max-w-2xl gap-2.5 text-xs md:mt-10 md:gap-4 md:text-sm text-cream/85 sm:grid-cols-2">
-          <li className="flex items-start gap-2 md:gap-3">
-            <MapPin className="mt-0.5 h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 text-eggshellGold" aria-hidden="true" />
+        <ul className="hero-fade mt-10 grid max-w-2xl gap-4 text-sm text-cream/85 sm:grid-cols-2">
+          <li className="flex items-start gap-3">
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-eggshellGold" aria-hidden="true" />
             <span>
-              <span className="block text-[0.62rem] uppercase tracking-wider text-cream/60 md:text-[0.7rem]">Landmark</span>
+              <span className="block text-[0.7rem] uppercase tracking-wider text-cream/60">Landmark</span>
               {BUSINESS.landmark}
             </span>
           </li>
-          <li className="flex items-start gap-2 md:gap-3">
-            <Truck className="mt-0.5 h-3.5 w-3.5 md:h-4 md:w-4 shrink-0 text-eggshellGold" aria-hidden="true" />
+          <li className="flex items-start gap-3">
+            <Truck className="mt-0.5 h-4 w-4 shrink-0 text-eggshellGold" aria-hidden="true" />
             <span>
-              <span className="block text-[0.62rem] uppercase tracking-wider text-cream/60 md:text-[0.7rem]">
+              <span className="block text-[0.7rem] uppercase tracking-wider text-cream/60">
                 Delivery coverage
               </span>
               {BUSINESS.deliveryCoverage}

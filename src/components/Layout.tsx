@@ -1,6 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { MapPin, MessageCircle, Menu, Phone, Truck, X } from "lucide-react";
-import logo from "../assets/logo.png";
+import { Egg, MessageCircle, Menu, Phone, X } from "lucide-react";
 import { BUSINESS } from "../data/business";
 import { SMS_NUMBERS, WHATSAPP_URL, formatPH } from "../data/contacts";
 import { getLenis } from "../lib/smooth";
@@ -60,10 +59,12 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           solid ? "bg-forestGreen/95 shadow-lg shadow-black/10 backdrop-blur" : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto flex h-12 items-center justify-between px-4 sm:px-5 md:h-16">
-          <a href="#top" className="flex items-center gap-2 text-cream" onClick={() => setOpen(false)}>
-            <img src={logo} alt="" className="h-8 w-8 shrink-0 object-contain md:h-11 md:w-11" />
-            <span className="font-display text-[0.7rem] font-semibold tracking-[0.08em] sm:text-base sm:tracking-[0.12em]">
+        <div className="container mx-auto flex h-16 items-center justify-between px-5">
+          <a href="#top" className="flex items-center gap-2.5 text-cream" onClick={() => setOpen(false)}>
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-eggshellGold text-forestGreen">
+              <Egg className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <span className="font-display text-[0.8rem] font-semibold tracking-[0.1em] sm:text-base sm:tracking-[0.12em]">
               {BUSINESS.name}
             </span>
           </a>
@@ -84,13 +85,13 @@ export const Layout = ({ children }: { children: ReactNode }) => {
 
           <button
             type="button"
-            className="-mr-2 grid h-10 w-10 place-items-center rounded-full text-cream lg:hidden"
+            className="-mr-2 grid h-11 w-11 place-items-center rounded-full text-cream lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+            {open ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
       </header>
@@ -98,7 +99,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       {open && (
         <div
           id="mobile-menu"
-          className="menu-in fixed inset-0 z-40 flex flex-col overflow-y-auto bg-forestGreen px-4 pb-8 pt-16 lg:hidden"
+          className="menu-in fixed inset-0 z-40 flex flex-col overflow-y-auto bg-forestGreen px-5 pb-10 pt-24 lg:hidden"
         >
           <nav aria-label="Mobile" className="flex flex-col">
             {NAV.map((n, i) => (
@@ -107,30 +108,27 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 href={n.href}
                 onClick={() => setOpen(false)}
                 style={{ animationDelay: `${80 + i * 55}ms` }}
-                className="menu-item border-b border-white/10 py-3 font-display text-2xl text-cream"
+                className="menu-item border-b border-white/10 py-4 font-display text-3xl text-cream"
               >
                 {n.label}
               </a>
             ))}
           </nav>
-          <div className="menu-item mt-5 grid gap-2" style={{ animationDelay: "450ms" }}>
+          <div className="menu-item mt-8 grid gap-3" style={{ animationDelay: "450ms" }}>
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-eggshellGold font-semibold text-darkText"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-eggshellGold font-semibold text-darkText"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" /> WhatsApp us
             </a>
-            {SMS_NUMBERS.map((num) => (
-              <a
-                key={num}
-                href={`sms:${num}`}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-white/25 font-medium text-cream"
-              >
-                <Phone className="h-5 w-5" aria-hidden="true" /> Text {formatPH(num)}
-              </a>
-            ))}
+            <a
+              href={`sms:${SMS_NUMBERS[0]}`}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white/25 font-medium text-cream"
+            >
+              <Phone className="h-5 w-5" aria-hidden="true" /> Text {formatPH(SMS_NUMBERS[0])}
+            </a>
           </div>
         </div>
       )}
@@ -139,30 +137,12 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         {children}
       </main>
 
-      <footer className="bg-forestGreen pb-[calc(4.25rem+env(safe-area-inset-bottom))] pt-7 text-cream md:pb-10 md:pt-14">
-        <div className="container mx-auto px-4 text-center sm:px-5 md:flex md:items-center md:justify-between md:gap-10 md:text-left">
-          <div className="flex flex-col items-center md:flex-row md:gap-5">
-            <img src={logo} alt={`${BUSINESS.name} logo`} className="h-16 w-16 object-contain md:h-24 md:w-24" />
-            <div className="mt-2 md:mt-0">
-              <p className="font-display text-base font-semibold tracking-[0.08em] md:text-xl">{BUSINESS.name}</p>
-              <p className="mt-0.5 text-[0.75rem] italic text-eggshellGold md:text-sm">{BUSINESS.tagline}</p>
-            </div>
-          </div>
-
-          <ul className="mx-auto mt-4 max-w-xs space-y-1.5 text-xs leading-snug text-cream/80 md:mx-0 md:mt-0 md:max-w-sm md:text-sm">
-            <li className="flex items-start justify-center gap-2 md:justify-start">
-              <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-eggshellGold" aria-hidden="true" />
-              <span className="text-left">{BUSINESS.landmark}</span>
-            </li>
-            <li className="flex items-start justify-center gap-2 md:justify-start">
-              <Truck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-eggshellGold" aria-hidden="true" />
-              <span className="text-left">Delivery: {BUSINESS.deliveryCoverage}</span>
-            </li>
-          </ul>
-        </div>
-
-        <div className="container mx-auto mt-5 px-4 sm:px-5">
-          <p className="border-t border-white/10 pt-3 text-center text-[0.65rem] text-cream/50 md:text-xs">
+      <footer className="bg-forestGreen pb-28 pt-12 text-cream md:pb-12">
+        <div className="container mx-auto px-5">
+          <p className="font-display text-xl font-semibold tracking-wide">{BUSINESS.name}</p>
+          <p className="mt-3 max-w-md text-sm text-cream/75">{BUSINESS.landmark}</p>
+          <p className="mt-1 text-sm text-cream/75">Delivery: {BUSINESS.deliveryCoverage}</p>
+          <p className="mt-8 text-xs text-cream/50">
             © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
           </p>
         </div>

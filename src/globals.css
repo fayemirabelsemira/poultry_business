@@ -60,6 +60,11 @@ button {
 }
 
 /* Keyframes */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
 @keyframes pulse-ring {
   0% {
     transform: scale(0.6);
@@ -98,6 +103,12 @@ button {
   }
 }
 
+.marquee-track {
+  animation: marquee 36s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
 .pulse-ring {
   animation: pulse-ring 2.6s ease-out infinite;
 }
@@ -118,5 +129,8 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .marquee-track {
+    animation: none;
   }
 }
